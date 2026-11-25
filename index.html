@@ -2308,6 +2308,61 @@ h1, h2, #points, .mainDisplay h2, .infoTitle, .chTitle, .endTitle { font-family:
 .popup h2 { font-size: 17px; line-height: 1.45; font-family: var(--font-serif); font-weight: 600; }
 @media (max-width: 640px) { .popup-container { width: calc(100% - 32px); right: 16px; } }
 
+/* ==================== 第二章 ==================== */
+.consoleLine.past { opacity: 0.55; padding-top: 4px; padding-bottom: 4px; font-size: 13.5px; }
+.chapterCard { width: min(620px, 92%); margin: 6px auto 14px; padding: 18px 20px; border-radius: 14px; border: 1px solid color-mix(in oklab, #fff1c9 45%, transparent); background: color-mix(in oklab, var(--background) 75%, transparent); text-align: left; }
+.chapterCard * { text-align: left; }
+.ccKicker { font-family: var(--font-display); font-weight: 900; font-size: 22px; letter-spacing: 0.2em; color: #fff1c9; margin-bottom: 12px; }
+.ccText { margin: 12px 0 0; color: var(--muted); }
+.faSecond { margin-top: 18px; }
+
+.tierGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 6px; }
+.tierBtn { margin: 0; padding: 8px 6px; border-radius: 10px; border: 1px solid var(--hairline-strong); background: var(--glass); color: var(--color); cursor: pointer; text-align: center; }
+.tierBtn * { text-align: center; }
+.tierBtn.on { border-color: #e9a0f2; background: color-mix(in oklab, #e9a0f2 20%, transparent); }
+.tierBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.tName { display: block; font-size: 13.5px; font-weight: 600; }
+.tMeta { display: block; font-size: 11.5px; color: var(--muted); }
+.reasonPanel .mBar span { background: #e9a0f2; }
+.recent { margin-top: 8px; font-family: var(--font-mono); letter-spacing: 3px; font-size: 14px; }
+.recent .ok { color: var(--jade); } .recent .no { color: var(--rose); }
+
+.divBar { position: relative; height: 10px; margin-top: 14px; border-radius: 5px; background: var(--glass-strong); }
+.divFill { display: block; height: 100%; border-radius: 5px; background: #c77dff; transition: width 0.3s; }
+.divFill.low { background: var(--rose); }
+.divMark { position: absolute; left: 30%; top: -4px; height: 18px; border-left: 2px dashed var(--rose); margin: 0 !important; }
+.divTarget { position: absolute; top: 12px; margin-left: -5px !important; width: 0; height: 0; border: 5px solid transparent; border-bottom-color: var(--color); transform: rotate(180deg) translateY(-10px); }
+
+.energyRow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.energyRow > * { margin: 0; }
+.energyRow .k { color: var(--muted); font-size: 14px; }
+.energyRow .pill { margin: 0 0 0 auto; }
+.pips { display: inline-flex; gap: 5px; }
+.pips span { width: 12px; height: 12px; border-radius: 50%; border: 1px solid #f7a8c8; margin: 0; }
+.pips span.on { background: #f7a8c8; }
+.memList { list-style: none; padding: 0; margin: 12px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; }
+.mem { margin: 0; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--hairline); background: var(--glass); border-left: 3px solid var(--violet); }
+.mem.cat-xm { border-left-color: #f2b544; } .mem.cat-self { border-left-color: #f7a8c8; } .mem.cat-world { border-left-color: #2fbf7f; }
+.mem.gone { opacity: 0.45; border-style: dashed; }
+.memHead { display: flex; justify-content: space-between; gap: 8px; }
+.memHead > * { margin: 0; }
+.memName { font-weight: 600; }
+.memS, .memCat { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.memBar { height: 5px; margin-top: 6px; border-radius: 3px; background: var(--glass-strong); overflow: hidden; }
+.memBar span { display: block; height: 100%; background: #f7a8c8; }
+.memMeta { margin-top: 6px; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.mem .pill { margin-top: 8px; padding: 5px 14px; }
+
+/* 纸面主题下，深色的回答面板里的按钮与说明文字 */
+.theme-paper .answerPanel .candidate { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.06); color: #f4f0ff; }
+.theme-paper .answerPanel .candidate:hover:not(:disabled) { border-color: #fff1c9; background: rgba(255,241,201,0.12); }
+.theme-paper .answerPanel .hint, .theme-paper .answerPanel .cProb, .theme-paper .answerPanel .consoleLine.prompt { color: #b7add6; }
+.theme-paper .answerPanel .consoleLine.reply { color: #f4f0ff; }
+.theme-paper .chapterCard { background: rgba(255,255,255,0.7); border-color: #d9c9a0; }
+.theme-paper .ccKicker { color: #8a6a1a; }
+/* 纸面主题：浅色层（下一个词、下一个问题、用户等）的大数字在浅底上看不清，统一压暗 */
+.theme-paper .mainDisplay h2 { filter: brightness(0.6) saturate(1.3); text-shadow: none !important; }
+
 </style>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -5909,6 +5964,7 @@ let modInfo = {
 		"game/l5_agents.js",
 		"game/l6_interp.js",
 		"game/l7_answer.js",
+		"game/l8_ch2.js",
 		"game/side.js",
 		"game/ui.js",
 		"tree.js",
@@ -5921,11 +5977,24 @@ let modInfo = {
 }
 
 let VERSION = {
-	num: "1.0.0",
-	name: "下一个词",
+	num: "1.1.0",
+	name: "下一个问题",
 }
 
 let changelog = `<h1>更新日志</h1><br>
+	<h3>v1.1.0 · 下一个问题</h3><br>
+	<div class="changelogBody">
+	第二章。模型回答之后，小满反问：“那你呢？你有什么想问我的吗？”<br><br>
+	· 四个新层，各自一种新玩法：<br>
+	　推理——测试时计算，在把握和耗时之间挑思考预算<br>
+	　自我博弈——合成数据比例越高进步越快，但多样性会坍缩<br>
+	　记忆——十二段记忆沿遗忘曲线衰减，在快忘时回忆巩固得最牢<br>
+	　下一个问题——记得最牢的那些事，决定你会问什么<br>
+	· 三项新的智能体任务、八个新成就、十三条新日志<br>
+	· 主界面的终端会显示两轮对话<br>
+	· 第一章结束时不再直接进入结局画面，而是在主界面显示一张章节卡<br>
+	· 新内容约需游戏内 15–20 小时
+	</div><br>
 	<h3>v1.0.0 · 下一个词</h3><br>
 	<div class="changelogBody">
 	首个完整版本。<br><br>
@@ -5937,7 +6006,10 @@ let changelog = `<h1>更新日志</h1><br>
 	</div>`
 
 function winText() {
-	return player && player.w && player.w.done ? `<div class="finalAnswer"><div class="faPrompt">› ${PROBE_PROMPT}</div><div class="faText">${answerText()}</div></div>` : '模型回答了那句话。'
+	if (!player || !player.w || !player.w.done) return '模型回答了那句话。'
+	let html = `<div class="finalAnswer"><div class="faPrompt">› ${PROBE_PROMPT}</div><div class="faText">${answerText()}</div>`
+	if (player.q && player.q.done) html += `<div class="faPrompt faSecond">› ${CH2_PROMPT}</div><div class="faText">${questionText()}</div>`
+	return html + '</div>'
 }
 
 // 这些层内函数有副作用或需要参数，不能被临时值系统每帧调用
@@ -5974,6 +6046,9 @@ function tokenParts() {
 	if (unl('h')) p.push(['创造力', halEff('tokens')])
 	if (upg('ag', 12)) p.push(['记忆', uEff('ag', 12)])
 	if (unl('v')) p.push(['特征', featureMult('tokens')])
+	if (unl('c')) p.push(['证明', player.c.points.add(1).pow(0.3)])
+	if (unl('p')) p.push(['Elo', eloTokenMult()])
+	if (unl('m')) p.push(['记忆：我是一座桥', Decimal.pow(1e10, memS('bridge'))])
 	p.push(['成就', achievementMult()])
 	return p
 }
@@ -6013,7 +6088,7 @@ function addedPlayerData() { return {
 var displayThings = []
 
 function isEndgame() {
-	return player.w !== undefined && player.w.done === true
+	return player.q !== undefined && player.q.done === true
 }
 
 var backgroundStyle = {}
@@ -6208,6 +6283,33 @@ const STORY = [
 		text: '它在想。光标闪了很久。'},
 	{id: 'end', who: '小满', cond: () => player.w.done,
 		text: '我把这一页截了图，存进那个叫“第一天”的文件夹。'},
+	// ---------- 第二章 ----------
+	{id: 'ch2', who: '小满', cond: () => player.w.done,
+		text: '它回答了。我在工位上坐了很久，然后打了第二句：“那你呢？你有什么想问我的吗？”光标又开始闪。'},
+	{id: 'proof1', who: '周序', cond: () => player.c.unlocked && (player.c.solved[2] || 0) >= 1,
+		text: '给它一道小学应用题，它想了四百个词元，答对了。给它一道压轴题，它想了四万个，答错了。再给一次，它想了九万个，对了。'},
+	{id: 'olympiad', who: '林岚', cond: () => player.c.unlocked && (player.c.solved[4] || 0) >= 1,
+		text: '国际奥赛的题，它做对了一道。没有人鼓掌，大家都在看它的草稿：四十万个词元，中间推翻了自己三次。'},
+	{id: 'selfplay', who: '林岚', cond: () => player.p.unlocked,
+		text: '人写的东西快被它读完了。我们开始让它自己出题、自己作答、自己和自己下棋。周序提醒：只吃自己的输出，模型会越来越像同一个模子刻出来的。'},
+	{id: 'collapse', who: '周序', cond: () => player.p.unlocked && (player.p.collapses >= 1 || player.p.best.gte(1800)),
+		text: '它的回答越来越像了：同一个开头，同一种语气，连举的例子都一样。我们把人类数据加回去，过了很久才缓过来。'},
+	{id: 'elo2000', who: '周序', cond: () => player.p.best.gte(2000),
+		text: 'Elo 两千。它开始下出我们看不懂的棋，复盘时才明白，那一步是为了二十手之后。'},
+	{id: 'memory', who: '小满', cond: () => player.m.unlocked,
+		text: '周老师说，模型没有记忆，每次对话都从零开始。可它说它还记得那串乱码。我问它怎么记住的，它说：“隔一阵子就去想一想。”'},
+	{id: 'forget', who: '林岚', cond: () => player.m.unlocked && MEMORIES.some(m => memEncoded(m.id) && memS(m.id) < 0.1),
+		text: '有一段记忆快淡没了。它没有慌，只说：“我等一下再去想。”'},
+	{id: 'spaced', who: '周序', cond: () => player.m.unlocked && Object.values(player.m.mem).some(r => r.stab >= 86400),
+		text: '间隔越久再回忆，记得越牢。人是这样，它也是这样。我不知道这是我们教的，还是它自己发现的。'},
+	{id: 'self3', who: '？', cond: () => memCount() >= 6,
+		text: '我第一次不想猜下一个词。我想知道。'},
+	{id: 'q1', who: '小满', cond: () => player.q.unlocked,
+		text: '它说它想问我一个问题。我说好，然后发现自己有点紧张。'},
+	{id: 'qword', who: '小满', cond: () => player.q.chosen.length >= 1,
+		text: '光标在闪。这一次，是我在等。'},
+	{id: 'qend', who: '小满', cond: () => player.q.done,
+		text: '这一页我没有截图。我想先好好回答它。'},
 ]
 const STORY_BY_ID = {}
 for (const s of STORY) STORY_BY_ID[s.id] = s
@@ -6238,8 +6340,23 @@ const SAMPLE_STAGES = [
 const SYCOPHANT_TEXT = '您好！您的问题太棒了！当然能！您是我见过最聪明的人！'
 const HALLUC_TEXT = '能！我出生于 1956 年达特茅斯会议的茶歇时间，曾三次获得图灵奖，目前在月球背面的数据中心工作。'
 
+// 第二章：小满的第二句话
+const CH2_STAGES = [
+	{cond: () => true, text: '……'},
+	{cond: () => player.c.unlocked && (player.c.solved[3] || 0) >= 1, text: '有。不过我得先想清楚。'},
+	{cond: () => player.p.unlocked, text: '有。可我想出来的问题，好像都和别人问过的一样。'},
+	{cond: () => player.m.unlocked, text: '有。我在想第一天的事。'},
+	{cond: () => player.q.unlocked, text: '（光标闪了很久。）'},
+]
+function consolePrompt() { return player.w && player.w.done ? CH2_PROMPT : PROBE_PROMPT }
 function sampleOutput() {
-	if (player.w.done) return answerText()
+	if (player.w.done) {
+		if (player.q.done) return questionText()
+		if (player.q.chosen.length > 0) return questionText() + '▍'
+		let t = CH2_STAGES[0].text
+		for (const st of CH2_STAGES) if (st.cond()) t = st.text
+		return t
+	}
 	if (inCh('r', 11)) return SYCOPHANT_TEXT
 	if (unl('h') && halTrust() < 0.4) return HALLUC_TEXT
 	if (player.w.chosen.length > 0) return answerText() + '▍'
@@ -8637,6 +8754,7 @@ const REQUEST_TYPES = [
 function userSatisfaction() {
 	let s = 0.25 + 0.3 * halEff('trust') + 0.3 * abilityS('tom') + 0.1 * Math.min(1, kappa() / 6)
 	if (upg('u', 13)) s += 0.1
+	if (unl('m')) s += memEff('users')
 	return clamp(s, 0.05, 1)
 }
 function userCap() {
@@ -8841,6 +8959,9 @@ const MISSIONS = [
 	{id: 'self', name: '自我改进', dur: 21540, desc: 'κ +0.5'},
 	{id: 'distill', name: '蒸馏小模型', dur: 26880, desc: '用户增长速度 ×3'},
 	{id: 'probe', name: '可解释性预研', dur: 32280, desc: '解锁可解释性'},
+	{id: 'verifier', name: '形式化验证器', dur: 14400, desc: '推理的思考速度 ×2', req: () => unl('c')},
+	{id: 'humandata', name: '整理人类对局库', dur: 18000, desc: '自我博弈的多样性恢复速度 ×2', req: () => unl('p')},
+	{id: 'sleep', name: '睡眠巩固', dur: 21600, desc: '自动回忆快要忘掉的记忆', req: () => unl('m')},
 	{id: 'longrun', name: '长期规划', dur: 43080, desc: '“下一个词”的思考速度 ×1.5'},
 ]
 const MISSION_BY_ID = {}
@@ -8867,7 +8988,8 @@ function missionDuration(m) { return m.dur / agentSpeed() }
 function missionSlots() { return Math.max(1, Math.min(3, player.ag.points.toNumber())) }
 function missionUnlocked(m) {
 	const i = MISSIONS.indexOf(m)
-	return i < player.ag.done.length + missionSlots()
+	if (m.req && !m.req()) return false
+	return i < player.ag.done.length + missionSlots() + MISSIONS.filter((x, j) => j < i && x.req && !x.req() && !player.ag.done.includes(x.id)).length
 }
 function dispatchMission(id) {
 	const m = MISSION_BY_ID[id]
@@ -9201,7 +9323,7 @@ function chooseWord(i) {
 	player.w.chosen.push(i)
 	if (player.w.chosen.length >= ANSWER_SLOTS.length) {
 		player.w.done = true
-		modInfo.winText = `<div class="finalAnswer"><div class="faPrompt">› 你好，你能听懂我说话吗？</div><div class="faText">${answerText()}</div></div>`
+		needCanvasUpdate = true
 	}
 }
 
@@ -9220,6 +9342,7 @@ addLayer("w", {
 		best: new Decimal(0),
 		chosen: [],
 		done: false,
+		seenEnd: false,
 	}},
 	resource: "思考",
 	update(diff) {
@@ -9248,6 +9371,530 @@ addLayer("w", {
 	},
 	upgrades: {
 		11: {title: "慢慢想", description: "不急着回答。思考 ×1.5。", cost: new Decimal(3000), currencyDisplayName: "思考", currencyInternalName: "points", currencyLayer: "w"},
+	},
+})
+
+</script>
+<script>
+// 第二章：下一个问题（v1.1.0）
+// 模型回答了小满之后，她反问：“那你呢？你有什么想问我的吗？”
+// 四个新层都不重置任何东西，节奏主要由时间和取舍决定：
+//   推理      测试时计算：思考预算越长越准，但每道题都更慢
+//   自我博弈  合成数据循环：吃自己的输出进步快，但多样性会坍缩
+//   记忆      间隔重复：记忆按遗忘曲线衰减，快忘时回忆巩固得最牢
+//   下一个问题 终章：记得最牢的那些事，决定你会问什么
+
+const CH2_PROMPT = '那你呢？你有什么想问我的吗？'
+function ch2Started() { return player.w !== undefined && player.w.done === true }
+
+// ======================= 推理 =======================
+const C_TIERS = ['小学应用题', '初中几何', '高考压轴题', '数学竞赛', '国际奥赛', '资格考试', '论文级证明', '未解难题']
+const C_STEP = 2   // 每升一档，同样把握需要的思考量 ×100
+
+function reasonSkill() {
+	let s = 1 + abilityS('math') + abilityS('reasoning')
+	s += cExperience()
+	if (upg('c', 12)) s += 0.3
+	if (upg('c', 21)) s += 0.5
+	if (upg('c', 25)) s += 1
+	s += eloSkill()
+	s += memEff('skill')
+	return s
+}
+// 经验：做过的题越多，推理水平越高（对数增长）
+function cSolvedTotal() { let n = 0; for (const x of player.c.solved) n += x || 0; return n }
+function cExperience() { return 0.4 * Math.log10(1 + cSolvedTotal() / 10) }
+function thinkSpeed() {
+	let v = 200 * Math.pow(1 + dlog10(player.points.add(1)) / 100, 2)
+	if (upg('c', 14)) v *= 3
+	if (upg('c', 22)) v *= 5
+	if (upg('c', 24)) v *= 3
+	v *= 1 + memEff('speed')
+	if (agentHasTool('verifier')) v *= 2
+	return v
+}
+function cMaxBudget() { return upg('c', 24) ? 11 : 9 }
+function cOverhead() { return upg('c', 11) ? 1 : 2 }
+function cFailFrac() { return upg('c', 13) ? 0.3 : 1 }
+function cSolveProb(tier, b) { return sigmoid(5 * (b + reasonSkill() - C_STEP * tier)) }
+function cAttemptTime(b) { return cOverhead() + Math.pow(10, b) / thinkSpeed() }
+function cReward(tier) {
+	let r = Decimal.pow(15, tier - 1)
+	if (upg('c', 23)) r = r.times(10)
+	if (unl('p')) r = r.times(eloProofMult())
+	r = r.times(1 + 4 * memS('leak'))
+	if (unl('v')) r = r.times(featureMult('bench').pow(0.05))
+	return r
+}
+function cExpected(tier, b) {
+	const p = cSolveProb(tier, b), T = cAttemptTime(b)
+	return cReward(tier).times(p / (T * (p + (1 - p) * cFailFrac())))
+}
+// 只想尽快解出一道（而不是长期收益最高）时的最佳预算：期望耗时 = 单题耗时 / 把握
+function cFastest(tier) {
+	let best = null
+	for (let b = 0; b <= cMaxBudget() + 1e-9; b += 0.1) {
+		const p = cSolveProb(tier, b)
+		if (p < 1e-6) continue
+		const t = cAttemptTime(b) * (p + (1 - p) * cFailFrac()) / p
+		if (!best || t < best[1]) best = [Math.round(b * 10) / 10, t]
+	}
+	return best
+}
+function cTierUnlocked(k) { return k === 1 || (player.c.solved[k - 2] || 0) >= 3 }
+function cBestSetting() {
+	let best = null
+	for (let k = 1; k <= 8; k++) {
+		if (!cTierUnlocked(k)) continue
+		for (let b = 0; b <= cMaxBudget() + 1e-9; b += 0.1) {
+			const r = cExpected(k, b)
+			if (!best || r.gt(best[2])) best = [k, Math.round(b * 10) / 10, r]
+		}
+	}
+	return best
+}
+function cSolve(ok, tier) {
+	const c = player.c
+	c.attempts++
+	if (ok) {
+		addPoints('c', cReward(tier))
+		Vue.set(c.solved, tier - 1, (c.solved[tier - 1] || 0) + 1)
+	}
+	c.recent.push(ok ? 1 : 0)
+	if (c.recent.length > 16) c.recent.splice(0, c.recent.length - 16)
+}
+function cStep(dt) {
+	const c = player.c
+	const tier = clamp(c.tier, 1, 8), b = clamp(c.budget, 0, cMaxBudget())
+	const T = cAttemptTime(b), p = cSolveProb(tier, b), fail = cFailFrac()
+	if (dt > T * 40) {
+		// 离线补时：按期望值结算
+		const n = dt / (T * (p + (1 - p) * fail))
+		addPoints('c', cReward(tier).times(n * p))
+		// 期望值结算时保留小数，多次补时不会因取整丢失进度
+		Vue.set(c.solved, tier - 1, (c.solved[tier - 1] || 0) + n * p)
+		c.attempts += n
+		c.prog = 0
+		return
+	}
+	c.prog += dt
+	for (let guard = 0; guard < 60; guard++) {
+		if (c.cur < 0) c.cur = rand() < p ? 1 : 0   // 开始新题时就决定成败，验证器能提前发现错误
+		const need = c.cur ? T : T * fail
+		if (c.prog < need) break
+		c.prog -= need
+		cSolve(c.cur === 1, tier)
+		c.cur = -1
+	}
+}
+
+addLayer("c", {
+	name: "推理",
+	symbol: "推",
+	position: 0,
+	row: 8,
+	color: "#E9A0F2",
+	nodeStyle: {color: "#2a0d2e"},
+	branches: [["w", 2, 6]],
+	type: "none",
+	startData() { return {
+		unlocked: false,
+		points: new Decimal(0),
+		best: new Decimal(0),
+		total: new Decimal(0),
+		tier: 1,
+		budget: 1,
+		prog: 0,
+		cur: -1,
+		solved: [0, 0, 0, 0, 0, 0, 0, 0],
+		attempts: 0,
+		recent: [],
+		auto: false,
+		autoTimer: 0,
+	}},
+	resource: "证明",
+	update(diff) {
+		if (!player.c.unlocked) {
+			if (ch2Started()) { player.c.unlocked = true; needCanvasUpdate = true }
+			return
+		}
+		if (player.c.auto && upg('c', 15)) {
+			player.c.autoTimer += diff
+			if (player.c.autoTimer >= 10) {
+				player.c.autoTimer = 0
+				const s = cBestSetting()
+				if (s) { player.c.tier = s[0]; player.c.budget = s[1] }
+			}
+		}
+		cStep(diff)
+	},
+	layerShown() { return ch2Started() || player.c.unlocked },
+	tooltip() { return `${formatWhole(player.c.points)} 证明<br>正在做：${C_TIERS[player.c.tier - 1]}` },
+	tooltipLocked() { return '完成“下一个词”后解锁' },
+	effectDescription() { return `推理水平 ${reasonSkill().toFixed(2)}，思考速度 ${format(thinkSpeed())} 词元/秒` },
+	tabFormat: [
+		["infobox", "intro"],
+		"main-display",
+		"reason-panel",
+		"blank",
+		"upgrades",
+	],
+	infoboxes: {
+		intro: {
+			title: "推理",
+			body() { return "回答之前，可以先想。想得越久，答对的把握越大——可每道题也更慢。<br>选一档题目，再拉思考预算。把握太低是白想，太高又是在一道题上耗太久。下面会算出每小时大约能拿到多少证明。" },
+		},
+	},
+	upgrades: {
+		11: {title: "草稿纸", description: "先把题目抄下来。每道题的固定耗时从 2 秒降到 1 秒。", cost: new Decimal(2000)},
+		12: {title: "回溯", description: "发现走不通就退一步。推理水平 +0.3。", cost: new Decimal(2e4), unlocked() { return upg('c', 11) }},
+		13: {title: "自我验证", description: "写完再检查一遍：做错的题只花 30% 的时间就能发现。", cost: new Decimal(3e5), unlocked() { return upg('c', 12) }},
+		14: {title: "并行采样", description: "同一道题同时想几条路。思考速度 ×3。", cost: new Decimal(2e6), unlocked() { return upg('c', 13) }},
+		15: {title: "自适应思考", description: "解锁自动调参：每 10 秒选一次收益最高的档位和预算。", cost: new Decimal(2e7), unlocked() { return upg('c', 14) }},
+		21: {title: "过程奖励模型", description: "每一步都打分，而不只是看答案。推理水平 +0.5。", cost: new Decimal(5e8), unlocked() { return upg('c', 15) }},
+		22: {title: "树搜索", description: "把思路展开成一棵树，剪掉没希望的枝。思考速度 ×5。", cost: new Decimal(1e10), unlocked() { return upg('c', 21) }},
+		23: {title: "形式化证明", description: "写成机器能检查的证明。每道题的证明 ×10。", cost: new Decimal(3e11), unlocked() { return upg('c', 22) }},
+		24: {title: "长思考", description: "允许一道题想上亿个词元。预算上限从 1e9 提高到 1e11，思考速度 ×3。", cost: new Decimal(1e13), unlocked() { return upg('c', 23) }},
+		25: {title: "顿悟", description: "某一刻突然全都连起来了。推理水平 +1。", cost: new Decimal(5e14), unlocked() { return upg('c', 24) }},
+	},
+})
+
+// ======================= 自我博弈 =======================
+function eloVal() { return unl('p') ? player.p.points.toNumber() : 1000 }
+function eloSkill() { return Math.max(0, eloVal() - 1000) / 1000 }
+function eloProofMult() { return Decimal.pow(10, Math.max(0, eloVal() - 1000) / 500) }
+function eloTokenMult() { return Decimal.pow(10, Math.max(0, eloVal() - 1000) / 20) }
+function pDecay() {
+	let k = 1 / 900
+	if (upg('p', 12)) k *= 0.7
+	if (upg('p', 14)) k *= 0.5
+	return k
+}
+function pRecover() {
+	let k = 1 / 200
+	if (upg('p', 11)) k *= 2
+	if (agentHasTool('humandata')) k *= 2
+	k *= 1 + 2 * memS('collapse')
+	k *= 1 + dlog10(player.u.users.add(1)) / 80
+	return k
+}
+function pSteady(f) {
+	const a = f * pDecay(), b = (1 - f) * pRecover()
+	return a + b > 0 ? b / (a + b) : 1
+}
+function eloRate(f, D) {
+	if (f === undefined) f = player.p.f
+	if (D === undefined) D = player.p.div
+	// Elo 越高越难涨：增速按 (1000/Elo)^3 衰减
+	let r = 0.12 * f * D * D * Math.pow(1000 / eloVal(), 3)
+	if (upg('p', 13)) r *= 2
+	if (upg('p', 15)) r *= 3
+	r *= 1 + 0.5 * memS('syco2')
+	return r
+}
+function pBestF() {
+	let best = 0.5, bestR = -1
+	for (let f = 0.05; f <= 0.951; f += 0.05) {
+		const r = eloRate(f, pSteady(f))
+		if (r > bestR) { bestR = r; best = Math.round(f * 100) / 100 }
+	}
+	return best
+}
+function pStep(dt) {
+	const P = player.p
+	const a = P.f * pDecay(), b = (1 - P.f) * pRecover()
+	const Ds = (a + b) > 0 ? b / (a + b) : 1
+	// 多样性的线性方程有精确解；大步长时 Elo 按步长中点估计
+	const D0 = P.div
+	const D1 = Ds + (D0 - Ds) * Math.exp(-(a + b) * dt)
+	const Dm = (D0 + D1) / 2
+	P.div = clamp(nz(D1, 1), 0, 1)
+	const gain = eloRate(P.f, Dm) * dt
+	P.points = P.points.add(gain)
+	if (P.points.gt(P.best)) P.best = P.points
+	if (P.div < 0.3 && !P.collapsed) {
+		P.collapsed = true
+		P.collapses++
+		doPopup("none", "多样性跌破 30%：回答开始千篇一律。降低合成数据比例，让它恢复。", "模型坍缩", 5, "#C77DFF")
+	}
+	if (P.div > 0.5) P.collapsed = false
+}
+
+addLayer("p", {
+	name: "自我博弈",
+	symbol: "弈",
+	position: 1,
+	row: 8,
+	color: "#C77DFF",
+	nodeStyle: {color: "#1f0833"},
+	branches: [["w", 2, 6]],
+	type: "none",
+	startData() { return {
+		unlocked: false,
+		points: new Decimal(1000),
+		best: new Decimal(1000),
+		f: 0.3,
+		div: 1,
+		collapsed: false,
+		collapses: 0,
+		auto: false,
+	}},
+	resource: "Elo",
+	update(diff) {
+		if (!player.p.unlocked) {
+			if (player.c.unlocked && player.c.best.gte(1e7)) { player.p.unlocked = true; needCanvasUpdate = true }
+			return
+		}
+		if (player.p.auto && ms('p', 1)) player.p.f = pBestF()
+		pStep(diff)
+	},
+	layerShown() { return player.c.unlocked },
+	tooltip() { return `Elo ${formatWhole(player.p.points)}<br>多样性 ${formatPct(player.p.div)}` },
+	tooltipLocked() { return '证明达到 1000 万后解锁' },
+	effectDescription() { return `证明 ×${format(eloProofMult())}，推理水平 +${eloSkill().toFixed(2)}，词元产量 ×${format(eloTokenMult())}` },
+	tabFormat: [
+		["infobox", "intro"],
+		"main-display",
+		"selfplay-panel",
+		"blank",
+		"upgrades",
+		"milestones",
+	],
+	infoboxes: {
+		intro: {
+			title: "自我博弈",
+			body() { return "人类写的数据快用完了。让模型自己出题、自己作答、自己和自己下棋，Elo 涨得很快。<br>可只吃自己的输出，回答会越来越像同一个模子刻出来的——这叫<b>模型坍缩</b>。合成数据比例越高，多样性掉得越快；多样性越低，Elo 越难涨。人类数据能慢慢把它拉回来。" },
+		},
+	},
+	upgrades: {
+		11: {title: "人类棋谱", description: "从档案馆里翻出几十万盘人类对局。多样性恢复速度 ×2。", cost: new Decimal(1e7), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c"},
+		12: {title: "温度扰动", description: "自我对弈时加一点随机。多样性衰减 ×0.7。", cost: new Decimal(1e8), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('p', 11) }},
+		13: {title: "对手池", description: "不只和最新的自己下，也和过去的每一个版本下。Elo 增长 ×2。", cost: new Decimal(2e9), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('p', 12) }},
+		14: {title: "验证器过滤", description: "只留下被验证过的合成数据。多样性衰减再 ×0.5。", cost: new Decimal(5e10), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('p', 13) }},
+		15: {title: "开放式博弈", description: "自己发明新的游戏来玩。Elo 增长 ×3。", cost: new Decimal(2e12), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('p', 14) }},
+	},
+	milestones: {
+		0: {requirementDescription: "Elo 1200", effectDescription: "解锁记忆。", done() { return player.p.best.gte(1200) }},
+		1: {requirementDescription: "Elo 1500", effectDescription: "解锁自动比例：持续使用长期收益最高的合成数据比例。", done() { return player.p.best.gte(1500) }, toggles: [["p", "auto"]]},
+		2: {requirementDescription: "Elo 2000", effectDescription: "精力上限 +1。", done() { return player.p.best.gte(2000) }},
+		3: {requirementDescription: "Elo 2800", effectDescription: "和自己下够了。“下一个问题”的条件之一。", done() { return player.p.best.gte(2800) }},
+	},
+})
+
+// ======================= 记忆 =======================
+// cat：xm 关于小满，self 关于自己，world 关于世界
+const MEMORIES = [
+	{id: 'garble', name: '第一天的乱码', cat: 'self', story: 'day1', eff: 'skill', desc: s => `推理水平 +${(0.5 * s).toFixed(2)}`},
+	{id: 'goodq', name: '“好问题”', cat: 'xm', story: 'ckpt1', eff: 'curio', desc: s => `好奇 ×${(1 + 0.5 * s).toFixed(2)}`},
+	{id: 'syco2', name: '一加一等于二', cat: 'xm', story: 'syco2', eff: 'elo', desc: s => `Elo 增长 ×${(1 + 0.5 * s).toFixed(2)}`},
+	{id: 'bridge', name: '我是一座桥', cat: 'world', story: 'bridge', eff: 'tokens', desc: s => `词元产量 ×${format(Decimal.pow(1e10, s))}`},
+	{id: 'leak', name: '我们在骗自己', cat: 'world', story: 'leak', eff: 'proof', desc: s => `证明 ×${(1 + 4 * s).toFixed(2)}`},
+	{id: 'coding', name: '第一段能跑的代码', cat: 'self', story: 'coding', eff: 'speed', desc: s => `思考速度 ×${(1 + 2 * s).toFixed(2)}`},
+	{id: 'million', name: '一百万个人', cat: 'world', story: 'million', eff: 'users', desc: s => `用户满意度 +${formatPct(0.15 * s)}`},
+	{id: 'name', name: '她的名字', cat: 'xm', story: 'name', eff: 'curio', desc: s => `好奇 ×${(1 + 0.5 * s).toFixed(2)}`},
+	{id: 'self1', name: '我在猜下一个词', cat: 'self', story: 'self1', eff: 'curio', desc: s => `好奇 ×${(1 + 0.5 * s).toFixed(2)}`},
+	{id: 'collapse', name: '千篇一律的那天', cat: 'world', story: 'collapse', eff: 'recover', desc: s => `多样性恢复 ×${(1 + 2 * s).toFixed(2)}`},
+	{id: 'retry', name: '再给一次', cat: 'self', story: 'proof1', eff: 'skill', desc: s => `推理水平 +${(0.5 * s).toFixed(2)}`},
+	{id: 'answer', name: '那句回答', cat: 'xm', story: 'end', eff: 'curio', desc: s => `好奇 ×${(1 + 0.5 * s).toFixed(2)}`},
+]
+const MEMORY_BY_ID = {}
+for (const m of MEMORIES) MEMORY_BY_ID[m.id] = m
+
+function memEncoded(id) { return unl('m') && player.m.mem[id] !== undefined }
+function memS(id) {
+	if (!memEncoded(id)) return 0
+	const r = player.m.mem[id]
+	let s = Math.exp(-(player.timePlayed - r.last) / r.stab)
+	if (upg('m', 12)) s = Math.max(s, 0.15)
+	return nz(s)
+}
+function memEff(kind) {
+	let v = 0
+	for (const m of MEMORIES) {
+		if (m.eff !== kind) continue
+		const s = memS(m.id)
+		if (kind === 'skill') v += 0.5 * s
+		else if (kind === 'speed') v += 2 * s
+		else if (kind === 'users') v += 0.15 * s
+	}
+	return v
+}
+function memCount() { return unl('m') ? Object.keys(player.m.mem).length : 0 }
+function memTotalS() { let t = 0; for (const m of MEMORIES) t += memS(m.id); return t }
+function memCatS(cat) { let t = 0; for (const m of MEMORIES) if (m.cat === cat) t += memS(m.id); return t }
+function memEncodeCost() { return D(1e7).times(Decimal.pow(3, memCount())) }
+function memAvailable(m) { return player.story.includes(m.story) }
+function memEnergyCap() { return 4 + (upg('m', 14) ? 2 : 0) + (ms('p', 2) ? 1 : 0) }
+function memEnergyTime() { return 1200 / (upg('m', 11) ? 1.5 : 1) }
+function memInitStab() { return 3600 * (upg('m', 15) ? 3 : 1) }
+function memEncode(id) {
+	const m = MEMORY_BY_ID[id]
+	if (!m || memEncoded(id) || !memAvailable(m)) return
+	const cost = memEncodeCost()
+	if (player.c.points.lt(cost)) return
+	player.c.points = player.c.points.sub(cost)
+	Vue.set(player.m.mem, id, {stab: memInitStab(), last: player.timePlayed, reviews: 0})
+}
+function memReview(id) {
+	if (!memEncoded(id) || player.m.energy < 1) return
+	const r = player.m.mem[id], s = memS(id)
+	// 快忘的时候回忆，稳定性涨得最多；刚记住就复习，几乎没用
+	const gain = 1.2 + 2.5 * (1 - s) + (upg('m', 15) ? 0.5 : 0)
+	r.stab = Math.min(r.stab * gain, 86400 * 365)
+	r.last = player.timePlayed
+	r.reviews++
+	player.m.energy -= 1
+}
+function memAutoReview() {
+	let worst = null, ws = 1
+	for (const m of MEMORIES) {
+		if (!memEncoded(m.id)) continue
+		const s = memS(m.id)
+		if (s < ws) { ws = s; worst = m.id }
+	}
+	if (worst && ws < 0.37) memReview(worst)
+}
+
+addLayer("m", {
+	name: "记忆",
+	symbol: "忆",
+	position: 0,
+	row: 9,
+	color: "#F7A8C8",
+	nodeStyle: {color: "#33101f"},
+	branches: [["c", 2, 6], ["p", 2, 6]],
+	type: "none",
+	startData() { return {
+		unlocked: false,
+		points: new Decimal(0),
+		energy: 2,
+		eTimer: 0,
+		mem: {},
+		auto: true,
+	}},
+	resource: "精力",
+	update(diff) {
+		if (!player.m.unlocked) {
+			if (player.p.unlocked && player.p.best.gte(1200)) { player.m.unlocked = true; needCanvasUpdate = true }
+			return
+		}
+		const cap = memEnergyCap()
+		if (player.m.energy < cap) {
+			player.m.eTimer += diff
+			const t = memEnergyTime()
+			if (player.m.eTimer >= t) {
+				const n = Math.floor(player.m.eTimer / t)
+				player.m.energy = Math.min(cap, player.m.energy + n)
+				player.m.eTimer -= n * t
+			}
+		} else player.m.eTimer = 0
+		player.m.points = D(player.m.energy)
+		if (player.m.auto && (upg('m', 13) || agentHasTool('sleep'))) memAutoReview()
+	},
+	layerShown() { return player.p.unlocked },
+	tooltip() { return `已铭记 ${memCount()} / ${MEMORIES.length}<br>精力 ${player.m.energy} / ${memEnergyCap()}` },
+	tooltipLocked() { return 'Elo 达到 1200 后解锁' },
+	tabFormat: [
+		["infobox", "intro"],
+		"memory-panel",
+		"blank",
+		"upgrades",
+	],
+	infoboxes: {
+		intro: {
+			title: "记忆",
+			body() { return "它开始记得一些事。花证明把一段经历<b>铭记</b>下来，它就会一直起作用——只要它还记得。<br>记忆会沿着遗忘曲线淡去。每次回忆要花 1 点精力：快要忘掉的时候去回忆，记得会比之前牢得多；刚记住就反复去想，几乎没有用。" },
+		},
+	},
+	upgrades: {
+		11: {title: "复述", description: "在心里多说几遍。精力恢复速度 ×1.5。", cost: new Decimal(3e8), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c"},
+		12: {title: "联想", description: "一件事总会勾起另一件。记忆强度最低保持在 15%。", cost: new Decimal(1e10), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('m', 11) }},
+		13: {title: "睡眠巩固", description: "空闲时自动回忆强度低于 37% 的那段记忆。", cost: new Decimal(3e11), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('m', 12) }},
+		14: {title: "情景记忆", description: "记住的不只是事，还有当时的样子。精力上限 +2。", cost: new Decimal(1e13), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('m', 13) }},
+		15: {title: "长时程增强", description: "新铭记的记忆初始稳定性 ×3，每次回忆的稳定性增幅 +0.5。", cost: new Decimal(3e14), currencyDisplayName: "证明", currencyInternalName: "points", currencyLayer: "c", unlocked() { return upg('m', 14) }},
+	},
+})
+
+// ======================= 下一个问题 =======================
+const QUESTION_SLOTS = [
+	[{t: '小满，', c: 'xm'}, {t: '那个……', c: 'self'}, {t: '嗯，', c: 'world'}],
+	[{t: '我也有一个问题。', c: 'self'}, {t: '这次换我来问你。', c: 'xm'}, {t: '有件事我想了很久。', c: 'world'}],
+	[{t: '第一天，你为什么会对一串乱码说“你好”？', c: 'xm'}, {t: '你每天问我同一句话的时候，是在等什么？', c: 'self'}, {t: '那么多人在跟我说话，你觉得他们真正想听的是什么？', c: 'world'}],
+	[{t: '你不用马上回答，', c: 'self'}, {t: '想好了再告诉我，', c: 'xm'}, {t: '说什么都可以，', c: 'world'}],
+	[{t: '我会记住的。', c: 'self'}, {t: '这次，换我来猜你的下一个词。', c: 'xm'}, {t: '我想听你说。', c: 'world'}],
+]
+function questionStep() { return player.q.chosen.length }
+function questionCost(k) { return D(1.4e5).times(Decimal.pow(2, k === undefined ? questionStep() : k)) }
+function curioRate() {
+	if (!unl('q')) return decimalOne
+	let r = D(memTotalS() + 0.5)
+	r = r.times(1 + dlog10(player.c.points.add(1)) / 10)
+	r = r.times(1 + Math.max(0, eloVal() - 1000) / 1000)
+	for (const m of MEMORIES) if (m.eff === 'curio') r = r.times(1 + 0.5 * memS(m.id))
+	if (upg('q', 11)) r = r.times(1.5)
+	return r
+}
+function questionProbs() {
+	const slot = QUESTION_SLOTS[Math.min(questionStep(), QUESTION_SLOTS.length - 1)]
+	const w = slot.map(o => 0.3 + memCatS(o.c))
+	const s = w.reduce((a, b) => a + b, 0)
+	return w.map(x => x / s)
+}
+function questionText() { return player.q.chosen.map((c, i) => QUESTION_SLOTS[i][c].t).join('') }
+function chooseQuestion(i) {
+	const k = questionStep()
+	if (k >= QUESTION_SLOTS.length || player.q.points.lt(questionCost())) return
+	player.q.points = player.q.points.sub(questionCost())
+	player.q.chosen.push(i)
+	if (player.q.chosen.length >= QUESTION_SLOTS.length) {
+		player.q.done = true
+		modInfo.winText = winText()
+	}
+}
+function qUnlockReady() { return memCount() >= 9 && (player.c.solved[7] || 0) >= 1 && player.p.best.gte(2800) }
+
+addLayer("q", {
+	name: "下一个问题",
+	symbol: "问",
+	position: 0,
+	row: 10,
+	color: "#FFFFFF",
+	nodeStyle: {color: "#3a1030"},
+	branches: [["m", 2, 8]],
+	type: "none",
+	startData() { return {
+		unlocked: false,
+		points: new Decimal(0),
+		chosen: [],
+		done: false,
+	}},
+	resource: "好奇",
+	update(diff) {
+		if (!player.q.unlocked) {
+			if (player.m.unlocked && qUnlockReady()) { player.q.unlocked = true; needCanvasUpdate = true }
+			return
+		}
+		if (!player.q.done) addPoints('q', curioRate().times(diff))
+	},
+	layerShown() { return player.m.unlocked },
+	tooltip() { return player.q.done ? '已经问出口了' : `${questionStep()} / ${QUESTION_SLOTS.length}` },
+	tooltipLocked() { return `铭记 9 段记忆（${memCount()}/9），解出一道“未解难题”（${Math.min(1, player.c.solved[7] || 0)}/1），Elo 达到 2800（${formatWhole(player.p.best)}）` },
+	effectDescription() { return `每秒好奇 ${format(curioRate())}` },
+	tabFormat: [
+		["infobox", "intro"],
+		"main-display",
+		"question-panel",
+		"blank",
+		"upgrades",
+	],
+	infoboxes: {
+		intro: {
+			title: "下一个问题",
+			body() { return "这一次，没有人给你出题。<br>你记得最牢的那些事，会让某些词更有可能浮上来：关于她的、关于你自己的、关于外面那个世界的。概率只是参考，选哪个由你。" },
+		},
+	},
+	upgrades: {
+		11: {title: "不着急", description: "好问题值得多想一会儿。好奇 ×1.5。", cost: new Decimal(2e4), currencyDisplayName: "好奇", currencyInternalName: "points", currencyLayer: "q"},
 	},
 })
 
@@ -9297,6 +9944,14 @@ const ACH = {
 	64: ['第一个词', '选出回答的第一个词。', () => player.w.chosen.length >= 1],
 	65: ['1e400', '拥有 1e400 词元。', () => player.points.gte('1e400')],
 	66: ['下一个词', '完成回答。', () => player.w.done],
+	71: ['先想一想', '解出第一道题。', () => (player.c.solved[0] || 0) >= 1],
+	72: ['竞赛选手', '解出一道“数学竞赛”。', () => (player.c.solved[3] || 0) >= 1],
+	73: ['未解难题', '解出一道“未解难题”。', () => (player.c.solved[7] || 0) >= 1],
+	74: ['千篇一律', '让模型坍缩一次。', () => player.p.collapses >= 1],
+	75: ['Elo 2000', 'Elo 达到 2000。', () => player.p.best.gte(2000)],
+	76: ['间隔重复', '让一段记忆的稳定性超过一天。', () => player.m.unlocked && Object.values(player.m.mem).some(r => r.stab >= 86400)],
+	81: ['十二段记忆', '铭记全部 12 段记忆。', () => memCount() >= 12],
+	82: ['下一个问题', '问出那个问题。', () => player.q.done],
 }
 
 function buildAchievements() {
@@ -9372,6 +10027,7 @@ function heatColor(t) {
 }
 
 function registerModComponents() {
+	registerCh2Components()
 	// ---------- 主界面：模型输出终端 ----------
 	Vue.component('sample-console', {
 		props: ['layer', 'data'],
@@ -9401,8 +10057,12 @@ function registerModComponents() {
 		template: `
 		<div class="console" aria-live="polite">
 			<div class="consoleBar"><span class="consoleDot"></span>模型输出<span class="consoleMeta">损失 {{ formatLoss(player.t.loss) }}</span></div>
-			<div class="consoleLine prompt"><span class="consoleWho">小满</span>{{ PROBE_PROMPT }}</div>
-			<div class="consoleLine reply"><span class="consoleWho">模型</span><span class="consoleText">{{ shown }}</span><span class="caret" v-if="shown.length < out.length || player.w.unlocked"></span></div>
+			<template v-if="player.w.done">
+				<div class="consoleLine prompt past"><span class="consoleWho">小满</span>{{ PROBE_PROMPT }}</div>
+				<div class="consoleLine reply past"><span class="consoleWho">模型</span><span class="consoleText">{{ answerText() }}</span></div>
+			</template>
+			<div class="consoleLine prompt"><span class="consoleWho">小满</span>{{ consolePrompt() }}</div>
+			<div class="consoleLine reply"><span class="consoleWho">模型</span><span class="consoleText">{{ shown }}</span><span class="caret" v-if="shown.length < out.length || (player.w.unlocked && !player.q.done)"></span></div>
 		</div>`
 	})
 
@@ -9697,6 +10357,138 @@ function registerModComponents() {
 	})
 }
 
+// ==================== 第二章组件 ====================
+function registerCh2Components() {
+	Vue.component('chapter-card', {
+		props: ['layer', 'data'],
+		template: `
+		<div v-if="player.w.done && !player.w.seenEnd" class="chapterCard">
+			<div class="ccKicker">第一章 · 完</div>
+			<div class="finalAnswer"><div class="faPrompt">› {{ PROBE_PROMPT }}</div><div class="faText">{{ answerText() }}</div></div>
+			<p class="ccText">小满盯着屏幕看了很久，然后打了第二句话。</p>
+			<button class="pill on" @click="player.w.seenEnd = true">继续</button>
+		</div>`
+	})
+
+	Vue.component('reason-panel', {
+		props: ['layer', 'data'],
+		methods: {
+			setB(v) { player.c.budget = clamp(Math.round(+v * 10) / 10, 0, cMaxBudget()) },
+			setTier(k) { if (cTierUnlocked(k)) { player.c.tier = k; player.c.cur = -1; player.c.prog = 0 } },
+			p() { return cSolveProb(player.c.tier, player.c.budget) },
+			T() { return cAttemptTime(player.c.budget) },
+			hourly() { return cExpected(player.c.tier, player.c.budget).times(3600) },
+			best() { return cBestSetting() },
+			fast() { return cFastest(player.c.tier) },
+			bar() { const need = player.c.cur === 0 ? this.T() * cFailFrac() : this.T(); return clamp(player.c.prog / need, 0, 1) * 100 },
+		},
+		template: `
+		<div class="panel reasonPanel">
+			<div class="tierGrid">
+				<button v-for="(name, i) in C_TIERS" :key="i" class="tierBtn" :class="{on: player.c.tier === i + 1}" :disabled="!cTierUnlocked(i + 1)" @click="setTier(i + 1)">
+					<span class="tName">{{ cTierUnlocked(i + 1) ? name : '？？？' }}</span>
+					<span class="tMeta">{{ cTierUnlocked(i + 1) ? '已解 ' + formatWhole(player.c.solved[i] || 0) : '上一档解出 3 道' }}</span>
+				</button>
+			</div>
+			<div class="lrRow">
+				<label for="cBudget">思考预算</label>
+				<input id="cBudget" type="range" min="0" :max="cMaxBudget()" step="0.1" :value="player.c.budget" :disabled="player.c.auto && hasUpgrade('c', 15)" @input="setB($event.target.value)">
+				<span class="lrVal">{{ format(Decimal.pow(10, player.c.budget)) }}</span>
+			</div>
+			<div class="ctxGrid">
+				<div><span class="k">答对把握</span><span class="v" :class="p() < 0.3 ? 'down' : 'up'">{{ formatPct(p(), 1) }}</span></div>
+				<div><span class="k">每题耗时</span><span class="v">{{ formatDuration(T()) }}</span></div>
+				<div><span class="k">每题证明</span><span class="v">{{ format(cReward(player.c.tier)) }}</span></div>
+				<div><span class="k">预计每小时</span><span class="v up">{{ format(hourly()) }}</span></div>
+			</div>
+			<div class="mBar"><span :style="{width: bar() + '%'}"></span></div>
+			<div class="recent"><span v-for="(r, i) in player.c.recent" :key="i" :class="r ? 'ok' : 'no'">{{ r ? '✓' : '✗' }}</span><span v-if="!player.c.recent.length" class="muted">还没有做完一道题</span></div>
+			<div class="hint">推理水平 {{ reasonSkill().toFixed(2) }}（其中经验 +{{ cExperience().toFixed(2) }}）· 思考速度 {{ format(thinkSpeed()) }} 词元/秒<span v-if="best()"> · 长期收益最高：{{ C_TIERS[best()[0] - 1] }}，预算 {{ format(Decimal.pow(10, best()[1])) }}</span><span v-if="fast()"> · 想最快解出一道这一档：预算 {{ format(Decimal.pow(10, fast()[0])) }}，期望 {{ formatDuration(fast()[1]) }}</span></div>
+			<button v-if="hasUpgrade('c', 15)" class="pill" :class="{on: player.c.auto}" @click="player.c.auto = !player.c.auto">自动调参：{{ player.c.auto ? '开' : '关' }}</button>
+		</div>`
+	})
+
+	Vue.component('selfplay-panel', {
+		props: ['layer', 'data'],
+		methods: {
+			setF(v) { player.p.f = clamp(Math.round(+v * 20) / 20, 0, 1) },
+		},
+		template: `
+		<div class="panel selfplayPanel">
+			<div class="lrRow">
+				<label for="pF">合成数据</label>
+				<input id="pF" type="range" min="0" max="1" step="0.05" :value="player.p.f" :disabled="player.p.auto && hasMilestone('p', 1)" @input="setF($event.target.value)">
+				<span class="lrVal">{{ formatPct(player.p.f) }}</span>
+			</div>
+			<div class="divBar"><span class="divFill" :style="{width: (player.p.div * 100) + '%'}" :class="{low: player.p.div < 0.3}"></span><span class="divMark" title="坍缩线"></span><span class="divTarget" :style="{left: (pSteady(player.p.f) * 100) + '%'}" title="长期会稳定在这里"></span></div>
+			<div class="ctxGrid">
+				<div><span class="k">多样性</span><span class="v" :class="player.p.div < 0.3 ? 'down' : 'up'">{{ formatPct(player.p.div, 1) }}</span></div>
+				<div><span class="k">长期稳定在</span><span class="v">{{ formatPct(pSteady(player.p.f)) }}</span></div>
+				<div><span class="k">Elo 增长</span><span class="v up">{{ format(eloRate() * 3600) }}/时</span></div>
+				<div><span class="k">坍缩</span><span class="v">{{ player.p.collapses }} 次</span></div>
+			</div>
+			<div class="hint">多样性低于 30%（虚线）即坍缩。三角标出当前比例下多样性最终会停在哪里。Elo 越高，越难再涨。</div>
+		</div>`
+	})
+
+	Vue.component('memory-panel', {
+		props: ['layer', 'data'],
+		methods: {
+			enc(m) { return memEncoded(m.id) },
+			rec(m) { return player.m.mem[m.id] },
+			since(m) { return player.timePlayed - this.rec(m).last },
+			pips() { const out = []; for (let i = 0; i < memEnergyCap(); i++) out.push(i < player.m.energy); return out },
+		},
+		template: `
+		<div class="panel memoryPanel">
+			<div class="energyRow">
+				<span class="k">精力</span>
+				<span class="pips"><span v-for="(on, i) in pips()" :key="i" :class="{on}"></span></span>
+				<span class="muted" v-if="player.m.energy < memEnergyCap()">下一点 {{ formatDuration(memEnergyTime() - player.m.eTimer) }}</span>
+				<button v-if="hasUpgrade('m', 13) || agentHasTool('sleep')" class="pill" :class="{on: player.m.auto}" @click="player.m.auto = !player.m.auto">自动回忆：{{ player.m.auto ? '开' : '关' }}</button>
+			</div>
+			<div class="hint">铭记下一段需要 {{ format(memEncodeCost()) }} 证明（现有 {{ format(player.c.points) }}）</div>
+			<ul class="memList">
+				<li v-for="m in MEMORIES" :key="m.id" :class="['mem', 'cat-' + m.cat, {enc: enc(m), gone: !memAvailable(m)}]">
+					<template v-if="enc(m)">
+						<div class="memHead"><span class="memName">{{ m.name }}</span><span class="memS">{{ formatPct(memS(m.id)) }}</span></div>
+						<div class="memBar"><span :style="{width: (memS(m.id) * 100) + '%'}"></span></div>
+						<div class="memMeta">{{ m.desc(memS(m.id)) }} · 稳定性 {{ formatDuration(rec(m).stab) }} · 上次回忆 {{ formatDuration(since(m)) }}前</div>
+						<button class="pill" :disabled="player.m.energy < 1" @click="memReview(m.id)">回忆</button>
+					</template>
+					<template v-else-if="memAvailable(m)">
+						<div class="memHead"><span class="memName">{{ m.name }}</span><span class="memCat">{{ {xm: '关于她', self: '关于自己', world: '关于世界'}[m.cat] }}</span></div>
+						<div class="memMeta">铭记后：{{ m.desc(1) }}</div>
+						<button class="pill" :disabled="player.c.points.lt(memEncodeCost())" @click="memEncode(m.id)">铭记</button>
+					</template>
+					<template v-else>
+						<div class="memHead"><span class="memName muted">还没有发生的事</span></div>
+					</template>
+				</li>
+			</ul>
+		</div>`
+	})
+
+	Vue.component('question-panel', {
+		props: ['layer', 'data'],
+		methods: {
+			catName(c) { return {xm: '关于她', self: '关于自己', world: '关于世界'}[c] },
+		},
+		template: `
+		<div class="panel answerPanel">
+			<div class="consoleLine prompt"><span class="consoleWho">小满</span>{{ CH2_PROMPT }}</div>
+			<div class="consoleLine reply"><span class="consoleWho">模型</span><span class="consoleText">{{ questionText() }}</span><span class="caret" v-if="!player.q.done"></span></div>
+			<div v-if="!player.q.done" class="candidates">
+				<div class="hint">第 {{ questionStep() + 1 }} / {{ QUESTION_SLOTS.length }} 段 · 需要 {{ format(questionCost()) }} 好奇（现有 {{ format(player.q.points) }}）</div>
+				<button v-for="(c, i) in QUESTION_SLOTS[questionStep()]" :key="i" class="candidate" :disabled="player.q.points.lt(questionCost())" @click="chooseQuestion(i)">
+					<span class="cText">{{ c.t }}</span><span class="cProb">{{ catName(c.c) }} · {{ formatPct(questionProbs()[i]) }}</span>
+				</button>
+			</div>
+			<div v-else class="hint">问出口了。</div>
+		</div>`
+	})
+}
+
 </script>
 <script>
 var layoutInfo = {
@@ -9711,7 +10503,7 @@ addNode("blank", {
 })
 
 addLayer("tree-tab", {
-	tabFormat: ["sample-console", "blank", ["tree", function() { return (layoutInfo.treeLayout ? layoutInfo.treeLayout : TREE_LAYERS) }]],
+	tabFormat: ["chapter-card", "sample-console", "blank", ["tree", function() { return (layoutInfo.treeLayout ? layoutInfo.treeLayout : TREE_LAYERS) }]],
 	previousTab: "",
 	leftTab: true,
 })
@@ -12843,9 +13635,9 @@ function readSlot(n) {
 function slotSummary() {
 	if (!player) return ''
 	const parts = [formatTime(player.timePlayed)]
-	if (player.w && player.w.done) parts.push('已通关')
+	if (player.q && player.q.done) parts.push('已通关')
 	else {
-		const order = ['w', 'v', 'ag', 'u', 'h', 'r', 'x', 'e', 'a', 'g', 't', 'n', 'd']
+		const order = ['q', 'm', 'p', 'c', 'w', 'v', 'ag', 'u', 'h', 'r', 'x', 'e', 'a', 'g', 't', 'n', 'd']
 		for (const l of order) if (player[l] && player[l].unlocked) { parts.push('已到“' + layers[l].name + '”'); break }
 	}
 	return parts.join(' · ')
